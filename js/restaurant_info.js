@@ -54,13 +54,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+    address.setAttribute("aria-label", "location " + restaurant.address);
+    
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
+  image.setAttribute("alt", "image of " + restaurant.name + " restaurant");    
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
+  cuisine.setAttribute("aria-label", "type of cuisine " + restaurant.cuisine_type);
 
   // fill operating hours
   if (restaurant.operating_hours) {
